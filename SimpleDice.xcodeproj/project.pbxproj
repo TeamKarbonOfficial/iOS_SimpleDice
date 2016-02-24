@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					B1D0527C1C7B65F2004984A1 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = C3H67KUA37;
 					};
 					B1D052901C7B65F2004984A1 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -399,10 +400,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SimpleDice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamkarbon.swift.SimpleDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -410,10 +415,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SimpleDice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamkarbon.swift.SimpleDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -484,6 +493,7 @@
 				B1D052A71C7B65F2004984A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1D052A81C7B65F2004984A1 /* Build configuration list for PBXNativeTarget "SimpleDiceTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +502,7 @@
 				B1D052AA1C7B65F2004984A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1D052AB1C7B65F2004984A1 /* Build configuration list for PBXNativeTarget "SimpleDiceUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +511,7 @@
 				B1D052AD1C7B65F2004984A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

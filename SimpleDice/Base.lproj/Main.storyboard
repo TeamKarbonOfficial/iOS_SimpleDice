@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimpleDice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,159 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sNN-Hl-XnW" userLabel="numberOfDice">
+                                <rect key="frame" x="20" y="526" width="560" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Sxg-eh-tJW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                    <segment title="6"/>
+                                </segments>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Sxg-eh-tJW"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Sxg-eh-tJW"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="updateNoOfDice:" destination="BYZ-38-t0r" eventType="valueChanged" id="boP-0f-AYk"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Number of Dice: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-D9-Icx" userLabel="labelNoDice">
+                                <rect key="frame" x="20" y="498" width="560" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="yb0-5L-jih"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yb0-5L-jih"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="yb0-5L-jih"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHc-XY-LNK" userLabel="buttonRoll">
+                                <rect key="frame" x="20" y="319" width="560" height="123"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="GPv-rK-efD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="45"/>
+                                <state key="normal" title="Roll Dice">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GPv-rK-efD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="GPv-rK-efD"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonRollListener:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e7p-jd-fN5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa3-ew-Q1e" userLabel="labelResult">
+                                <rect key="frame" x="20" y="20" width="560" height="300"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="250"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99991348490916132" green="1" blue="0.89644230407872949" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gWa-D9-Icx" firstAttribute="top" relation="lessThanOrEqual" secondItem="LHc-XY-LNK" secondAttribute="bottom" constant="30" id="1lc-IW-rgH"/>
+                            <constraint firstItem="LHc-XY-LNK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2pZ-Wx-IAb"/>
+                            <constraint firstItem="Sa3-ew-Q1e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6zf-UV-nJE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sNN-Hl-XnW" secondAttribute="bottom" constant="20" id="7dq-Li-jHa"/>
+                            <constraint firstItem="gWa-D9-Icx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9Jd-N3-gAp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="lessThanOrEqual" secondItem="sNN-Hl-XnW" secondAttribute="bottom" constant="50" id="KgB-b8-vWz"/>
+                            <constraint firstItem="sNN-Hl-XnW" firstAttribute="top" secondItem="gWa-D9-Icx" secondAttribute="bottom" constant="10" id="Kzv-2U-nl6"/>
+                            <constraint firstItem="gWa-D9-Icx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Lq8-mf-iBT"/>
+                            <constraint firstItem="LHc-XY-LNK" firstAttribute="top" secondItem="Sa3-ew-Q1e" secondAttribute="bottom" id="amX-R7-NQC"/>
+                            <constraint firstItem="LHc-XY-LNK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f7y-II-Tgq"/>
+                            <constraint firstItem="sNN-Hl-XnW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="faj-id-1yX"/>
+                            <constraint firstItem="gWa-D9-Icx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hMJ-sY-goC"/>
+                            <constraint firstItem="Sa3-ew-Q1e" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hMr-my-WYt"/>
+                            <constraint firstItem="Sa3-ew-Q1e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jJE-Oj-1bb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sa3-ew-Q1e" secondAttribute="trailing" id="jRd-KU-xGn"/>
+                            <constraint firstItem="gWa-D9-Icx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LHc-XY-LNK" secondAttribute="bottom" constant="20" id="r8r-lv-HDK"/>
+                            <constraint firstItem="LHc-XY-LNK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="upG-ab-LtQ"/>
+                            <constraint firstItem="sNN-Hl-XnW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wT4-Nn-NnY"/>
+                            <constraint firstItem="sNN-Hl-XnW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="x9p-bt-EFZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hMr-my-WYt"/>
+                                <exclude reference="jJE-Oj-1bb"/>
+                                <exclude reference="jRd-KU-xGn"/>
+                                <exclude reference="2pZ-Wx-IAb"/>
+                                <exclude reference="amX-R7-NQC"/>
+                                <exclude reference="upG-ab-LtQ"/>
+                                <exclude reference="1lc-IW-rgH"/>
+                                <exclude reference="9Jd-N3-gAp"/>
+                                <exclude reference="Lq8-mf-iBT"/>
+                                <exclude reference="r8r-lv-HDK"/>
+                                <exclude reference="Kzv-2U-nl6"/>
+                                <exclude reference="wT4-Nn-NnY"/>
+                                <exclude reference="x9p-bt-EFZ"/>
+                                <exclude reference="7dq-Li-jHa"/>
+                                <exclude reference="KgB-b8-vWz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="hMr-my-WYt"/>
+                                <include reference="jJE-Oj-1bb"/>
+                                <include reference="jRd-KU-xGn"/>
+                                <include reference="2pZ-Wx-IAb"/>
+                                <include reference="amX-R7-NQC"/>
+                                <include reference="upG-ab-LtQ"/>
+                                <include reference="1lc-IW-rgH"/>
+                                <include reference="9Jd-N3-gAp"/>
+                                <include reference="Lq8-mf-iBT"/>
+                                <include reference="r8r-lv-HDK"/>
+                                <include reference="Kzv-2U-nl6"/>
+                                <include reference="wT4-Nn-NnY"/>
+                                <include reference="x9p-bt-EFZ"/>
+                                <include reference="7dq-Li-jHa"/>
+                                <include reference="KgB-b8-vWz"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="labelResult" destination="Sa3-ew-Q1e" id="n7l-8L-aKk"/>
+                        <outlet property="rawNoOfDice" destination="sNN-Hl-XnW" id="vAu-Yv-LJk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="240" y="387.75"/>
         </scene>
     </scenes>
 </document>
