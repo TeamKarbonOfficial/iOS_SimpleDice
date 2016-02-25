@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     // Button roll dice listener
     @IBAction func buttonRollListener(sender: AnyObject) {
-        let diceRoll = Int(arc4random_uniform(diceMaxNum(NoOfDice))) + NoOfDice
+        let diceRoll = Int(arc4random_uniform(diceRange(NoOfDice))) + NoOfDice
         labelResult.text = String(diceRoll)
     }
     
@@ -39,8 +39,8 @@ class ViewController: UIViewController {
     }
     
     // Getting Maximum number for the dice & converting UInt32
-    func diceMaxNum(NoOfDice: Int) -> UInt32 {
-        return UInt32(NoOfDice * 6)
+    func diceRange(NoOfDice: Int) -> UInt32 {
+        return UInt32((NoOfDice * 6) - (NoOfDice - 1))
     }
     
 }
